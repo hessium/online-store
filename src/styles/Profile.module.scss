@@ -1,0 +1,12 @@
+.profile {
+  max-height: 423px;
+  min-height: 423px;
+  -webkit-flex: auto;
+  flex: auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

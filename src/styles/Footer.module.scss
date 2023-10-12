@@ -1,0 +1,49 @@
+.footer {
+    padding: 24px;
+    width: 100%;
+    max-width: 1274px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 6px;
+}
+
+.logo {
+    width: 78px;
+    height: 32px;
+}
+
+.logo a {
+    display: inline-block;
+}
+
+.socials {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.create {
+    font-weight: 500;
+    &_name {
+        color: #6C3EB8;
+        font-weight: 600;
+    }
+}
+
+.icon {
+    width: 25px;
+    height: 25px;
+
+    & svg {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.socials {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
