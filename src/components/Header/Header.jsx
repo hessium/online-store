@@ -13,7 +13,8 @@ import {useGetProductsQuery} from "../../features/api/apiSlice";
 
 const Header = () => {
     const dispatch = useDispatch();
-    const {currentUser} = useSelector(({user}) => user);
+    const {currentUser, cart} = useSelector(({user}) => user);
+
 
     const navigate = useNavigate();
 
@@ -89,7 +90,7 @@ const Header = () => {
                     <svg className={cl.icon_cart}>
                         <use xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#basket`}></use>
                     </svg>
-                    <span className={cl.count}>2</span>
+                    {!!cart.length && (<span className={cl.count}>{cart.length}</span>)}
                 </Link>
             </div>
         </header>
