@@ -3,12 +3,10 @@ import {Link} from "react-router-dom";
 import {ROUTES} from "../../utils/routes";
 import {useDispatch} from "react-redux";
 
-import cl from "../../styles/Product.module.scss";
 import IMG from '../../styles/img/card/img.png';
 import AVATAR from '../../styles/img/avatar.svg'
 import BANNER from '../../styles/img/banner.png'
 import {addItemToCart} from "../../features/user/userSlice";
-
 
 const colors = ['Red', 'Green', 'Blue', 'White'];
 const sizes = ['55', '66', '77', '88'];
@@ -34,59 +32,58 @@ const Product = (item) => {
     }
 
     return (
-        <section  className={cl.product} >
-            <div className={cl.images}>
-                <div className={cl.img} style={{backgroundImage:`url(${currentImages})`}} />
-                <div className={cl['images-list']}>
+        <section  >
+            <div >
+                <div  style={{backgroundImage:`url(${currentImages})`}} />
+                <div >
                     {imagesArray.map((img) =>
                         <div
                             onClick={() => setCurrentsImages(img)}
-                            className={cl.small}
                             style={{backgroundImage:`url(${img})`}}></div>
                     )}
                 </div>
             </div>
-            <div className={cl.info}>
-                <div className={cl.title}>{title}</div>
-                <div className={cl.price}>{price}$</div>
-                <div className={cl['property__list']}>
-                    <span className={cl['property__name']}>Color :</span>
+            <div >
+                <div >{title}</div>
+                <div >{price}$</div>
+                <div >
+                    <span>Color :</span>
                     {colors.map((color) =>
-                        <div  className={`${cl['property__item']} ${
-                            currentColor === color ? cl.active : ""
+                        <div  className={`${['property__item']} ${
+                            currentColor === color ? 'active' : ""
                         }`}
                              onClick={() => setCurrentColor(color)}>
                             {color}
                         </div>
                     )}
                 </div>
-                <div className={cl['property__list']}>
-                    <span className={cl['property__name']}>Size :</span>
+                <div >
+                    <span >Size :</span>
                     {sizes.map((size) =>
                         <div key={size}
-                             className={`${cl['property__item']} ${
-                                 currentSize === size ? cl.active : ""
+                             className={`${['property__item']} ${
+                                 currentSize === size ? 'active' : ""
                              }`}
                              onClick={() => setCurrentSize(size)}>
                             {size}
                         </div>
                     )}
                 </div>
-                <p className={cl.description}>{description}</p>
+                <p>{description}</p>
 
-                <div className={cl.actions}>
+                <div >
                     <button
-                        className={cl.add}
+
                         onClick={addToCart}
                         disabled={!currentSize}>
                         Add to cart
                     </button>
-                    <button className={cl.favourite}>
+                    <button >
                         Add to favorite
                     </button>
                 </div>
-                <div className={cl.bottom}>
-                    <div className="">
+                <div >
+                    <div >
                         19 people purchased
                     </div>
                     <Link to={ROUTES.HOME}>

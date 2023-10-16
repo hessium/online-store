@@ -1,49 +1,77 @@
 .header {
-  padding: 24px;
-  width: 100%;
-  max-width: 1274px;
-  margin: 0 auto;
+  padding: 30px 0;
+
+  & .container {
+    display: flex;
+    align-items: center;
+  }
+
+
+}
+
+form {
+  margin-left: auto;
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 
 .logo {
-  width: 78px;
-  height: 32px;
-}
-
-.logo a {
-  display: inline-block;
-}
-
-.info {
+  max-width: 80px;
   display: flex;
   align-items: center;
-  gap: 10px;
 }
 
 .user {
-  cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 10px;
+  cursor: pointer;
+
+  &__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid #6C3EB8;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-right: 10px;
+  }
 }
 
-.avatar {
-  width: 36px;
-  height: 36px;
-  background-color: #191919;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  border-radius: 50%;
+.navigate {
+  max-height: 350px;
+  overflow-y: auto;
+
 }
 
-.form {
+.link {
   display: flex;
   align-items: center;
   position: relative;
+  padding: 5px;
+  color: rgb(240, 240, 240, .9);
+}
+
+.active {
+  color: #6C3EB8;
+}
+
+.quantity {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  border-radius: 50%;
+  padding: 3px;
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  line-height: 1;
 }
 
 .box {
@@ -62,26 +90,9 @@
   overflow-y: auto;
 }
 
-.icon {
-  width: 13px;
-  height: 13px;
-
-  &_fav {
-    width: 24px;
-    height: 24px;
-  }
-  &_cart {
-    width: 24px;
-    height: 24px;
-  }
-
-  & svg {
-    width: 100%;
-    height: 100%;
-  }
-}
-
-.input {
-  position: relative;
-
+.footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

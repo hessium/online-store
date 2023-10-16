@@ -1,20 +1,21 @@
 import React from 'react';
 
-import cl from '../../styles/Sidebar.module.scss';
 import {NavLink} from "react-router-dom";
 import {useSelector} from "react-redux";
+
+import cl from '../../styles/Header.module.scss';
 
 const Sidebar = () => {
     const {list} = useSelector(({categories}) => categories)
     return (
-        <aside className={cl.sidebar}>
-            <h2 className={cl.title}>Categories</h2>
-            <nav>
-                <ul className={cl.menu}>
+        <aside >
+            <h2 >Categories</h2>
+            <nav className={cl.navigate}>
+                <ul >
                     {list.map(({id, name}) => (
                         <li key={id}>
                             <NavLink
-                                className={({ isActive}) =>
+                                className={({ isActive }) =>
                                     `${cl.link} ${isActive ? cl.active : ""}`}
                                 to={`/categories/${id}`}>
                                 {name}
@@ -24,8 +25,8 @@ const Sidebar = () => {
                 </ul>
             </nav>
             <div className={cl.footer}>
-                <a href='/help' className={cl.link} target="_blank">Help</a>
-                <a href='/terms' className={cl.link} target="_blank">Terms & Conditions</a>
+                <a href='/help' target="_blank">Help</a>
+                <a href='/terms'  target="_blank">Terms & Conditions</a>
             </div>
         </aside>
     )

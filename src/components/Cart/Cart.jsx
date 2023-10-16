@@ -26,10 +26,10 @@ const Cart = () => {
             ) :
                 (
                  <>
-                     <div className='list'>
+                     <div >
                          {cart.map((item) => {
                              const { title,  price, id, quantity} = item;
-                             return <div key={id} className='item'>
+                             return <div key={id} >
                                  <div >Картинка</div>
                                  <h2>{title}</h2>
                                  <div>{price}</div>

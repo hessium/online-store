@@ -2,10 +2,13 @@ import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import {useGetProductsQuery} from "../../features/api/apiSlice";
 
-import cl from "../../styles/Categories.module.scss";
-
 import Products from "../Products/Products";
 import {useSelector} from "react-redux";
+import Button from "react-bootstrap/Button";
+
+import cl from '../../styles/Category.module.scss';
+import InputGroup from "react-bootstrap/InputGroup";
+import Form from "react-bootstrap/Form";
 
 const Category = () => {
     const { id } = useParams();
@@ -18,7 +21,7 @@ const Category = () => {
     }
     const defaultParams =  {
         categoryId : id,
-        limit: 5,
+        limit: 4,
         offset: 0,
         ...defaultValues,
     }
@@ -77,31 +80,47 @@ const Category = () => {
     return (
         <section className='wrapper'>
             <h2>{cat?.name}</h2>
-            <form className={cl.filter} onSubmit={handleSubmit}>
-                <div className={cl.row}>
-                    <div>
-                        <input type="text"
-                               name='title'
-                               placeholder='Product name'
-                               onChange={handleChange}
-                               value={values.title}
+            <form  onSubmit={handleSubmit}>
+                <div className={cl.wrap}>
+                    <InputGroup className="mb-3">
+                        <Form.Control
+                            type="text"
+                            aria-label='title'
+                            aria-describedby="basic-addon1"
+                            name='title'
+                            placeholder='Product name'
+                            onChange={handleChange}
+                            value={values.title}
                         />
-                    </div>
-                    <div>
-                        <input type="number"
-                               name='price_min'
-                               placeholder='0'
-                               onChange={handleChange}
-                               value={values.price_min}
-                        />
-                    </div>
-                    <div>
-                        <input type="number"
-                               name='price_max'
-                               placeholder='0'
-                               onChange={handleChange}
-                               value={values.price_max}
-                        />
+                    </InputGroup>
+                    <div className={cl.price}>
+                        <div className={cl.title}>
+                            Price
+                        </div>
+                        <div className={cl.row}>
+                            <InputGroup className="mb-3">
+                                <Form.Control
+                                    type="number"
+                                    aria-label='price_min'
+                                    aria-describedby="basic-addon1"
+                                    name='price_min'
+                                    placeholder='0'
+                                    onChange={handleChange}
+                                    value={values.price_min}
+                                />
+                            </InputGroup>
+                            <InputGroup className="mb-3">
+                                <Form.Control
+                                    type="number"
+                                    aria-label='price_min'
+                                    aria-describedby="basic-addon1"
+                                    name='price_max'
+                                    placeholder='0'
+                                    onChange={handleChange}
+                                    value={values.price_max}
+                                />
+                            </InputGroup>
+                        </div>
                     </div>
                 </div>
                 <button type='submits' hidden />
@@ -120,14 +139,12 @@ const Category = () => {
             }
 
             {!isEnd && (
-                <div className={cl.more}>
-                    <button
-                        onClick={() =>
-                            setParams({ ...params, offset: params.offset + params.limit })
-                        }
-                    >
+                <div className={cl.btn}>
+                    <Button variant="dark"
+                            onClick={() => setParams({ ...params,
+                                offset: params.offset + params.limit })}>
                         See more
-                    </button>
+                    </Button>
                 </div>
             )}
         </section>

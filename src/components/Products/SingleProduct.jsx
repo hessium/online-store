@@ -36,7 +36,7 @@ const SingleProduct = () => {
         : (
             < >
                 <Product  {...data} key={data.id}/>
-                <Products products={ related} amount={5} title="Related products" />
+                <Products products={ related} amount={4} title="Related products" />
             </>
 
         )

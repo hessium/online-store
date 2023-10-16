@@ -2,8 +2,6 @@ import React, {useEffect, useState} from 'react'
 import { updateUser} from "../../features/user/userSlice";
 import {useDispatch, useSelector} from "react-redux";
 
-import cl from '../../styles/Profile.module.scss';
-
 const Profile = () => {
     const {currentUser} = useSelector(({user}) => user)
     const dispatch = useDispatch();
@@ -35,9 +33,9 @@ const Profile = () => {
     }
 
     return (
-        <section className={cl.profile}>
+        <section >
             {!currentUser ? <span>You need log in</span> : (
-                <form className={cl.form} onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit}>
                     <input
                         type="email"
                         name="email"
