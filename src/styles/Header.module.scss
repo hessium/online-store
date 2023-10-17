@@ -42,7 +42,7 @@ form {
 .navigate {
   max-height: 350px;
   overflow-y: auto;
-
+  margin-bottom: 24px;
 }
 
 .link {
@@ -95,4 +95,10 @@ form {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+@media (max-width: 1200px) {
+  aside {
+    width: 35%;
+  }
 }

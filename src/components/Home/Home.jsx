@@ -18,7 +18,7 @@ const Home = () => {
 
     return (
         <>
-            <Poster/>
+            <Poster />
             <Products products={ list } amount={4} title="Trending" />
             <Categories products={ categories.list } amount={4} title="Worth seeing" />
             <Products products={ filtered } amount={4} title="Less than 100$" />
