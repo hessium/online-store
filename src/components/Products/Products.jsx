@@ -8,14 +8,11 @@ import cl from '../../styles/Product.module.scss';
 const Products = ({ title, style = {}, products = [], amount }) => {
     const list = products.filter((_, i) => i < amount);
 
-
-
     return (
         <div  style={style}>
             {title && (<h2>{title}</h2>)}
             <div className={cl.list}>
                 {list.map(({ id, images, title, category: { name: cat }, price }) =>(
-
                     <Link className={cl.product} to={`/products/${id}`} key={id}>
                         <Card>
                             <Card.Img variant="top" src={

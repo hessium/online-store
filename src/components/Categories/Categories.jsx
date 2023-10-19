@@ -7,7 +7,7 @@ import cl from "../../styles/Category.module.scss";
 
 const Categories = ({ title,  products = [], amount }) => {
 
-    const list = products;
+    const list =  products.filter((_, i) => i < amount);
 
     return (
         <section className={cl.wrapper}>

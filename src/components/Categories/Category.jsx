@@ -42,21 +42,25 @@ const Category = () => {
         setItems([]);
         setEnd(false);
         setParams({ ...defaultParams, categoryId: id });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [id])
 
-    useEffect(() =>{
-        if(!id || !list.length) return;
-
-        const category = list.find((item) => item.id === id * 1)
-
-        setCat(category)
-    }, [id, list])
 
     useEffect(() => {
-        if(isLoading || !data.length) return;
+        if (isLoading) return;
+
+        if (!data.length) return setEnd(true);
 
         setItems((_items) => [..._items, ...data])
     }, [data, isLoading])
+
+    useEffect(() => {
+        if (!id || !list.length) return;
+
+        const category = list.find((item) => item.id === id * 1);
+
+        setCat(category);
+    }, [list, id]);
 
 
     const handleChange = ({target: { value, name}}) => {

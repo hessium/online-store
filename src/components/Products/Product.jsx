@@ -7,18 +7,18 @@ import cl from "../../styles/Product.module.scss";
 import IMG from '../../styles/img/card/img.png';
 import noPhoto from '../../styles/img/card/no-photo.jpg';
 import BANNER from '../../styles/img/banner.png';
-import {addItemToCart} from "../../features/user/userSlice";
 
+import {addItemToCart} from "../../features/user/userSlice";
 
 const colors = ['Red', 'Green', 'Blue', 'White'];
 const sizes = ['55', '66', '77', '88'];
 
-
 const Product = (item) => {
+    const dispatch = useDispatch();
     const { title, price, description, images} = item;
     const image = !images[2] ? noPhoto : images[2];
     const imagesArray = [ image, BANNER, IMG, image];
-    const dispatch = useDispatch();
+
     const [currentImages, setCurrentsImages] = useState(image);
     const [currentSize, setCurrentSize] = useState();
     const [currentColor, setCurrentColor] = useState();
@@ -27,14 +27,14 @@ const Product = (item) => {
         if (!images.length) return;
 
         setCurrentsImages(image);
-    }, [images]);
+    }, [images, image]);
 
     const addToCart = () => {
         dispatch(addItemToCart(item))
     }
 
     return (
-        <div  className={cl.detail} key={item.id}>
+        <div  className={cl.detail}>
             <div className={cl.images}>
                 <div className={cl.img} style={{backgroundImage:`url(${currentImages})`}} />
                 <div className={cl['images-list']}>

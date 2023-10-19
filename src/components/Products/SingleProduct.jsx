@@ -1,21 +1,21 @@
 import React, {useEffect} from 'react';
 import {useNavigate, useParams} from "react-router-dom";
-import {useGetProductQuery} from "../../features/api/apiSlice";
-import {ROUTES} from "../../utils/routes";
 import {useDispatch, useSelector} from "react-redux";
 
-import Product from "./Product";
-import Products from "./Products";
+import {useGetProductQuery} from "../../features/api/apiSlice";
 import {getRelatedProducts} from "../../features/products/productsSlice";
 
+import {ROUTES} from "../../utils/routes";
+
 import Spinner from 'react-bootstrap/Spinner';
+import Product from "./Product";
+import Products from "./Products";
 
 const SingleProduct = () => {
+    const dispatch = useDispatch();
     const {id} = useParams();
     const navigate = useNavigate();
-    const dispatch = useDispatch();
-
-    const { products: { related, list   } } = useSelector((state) => state );
+    const { list, related } = useSelector(({ products }) => products);
 
     const {data, isLoading, isFetching, isSuccess} = useGetProductQuery({id});
 
@@ -23,14 +23,14 @@ const SingleProduct = () => {
         if(!isFetching && !isLoading && !isSuccess) {
             navigate(ROUTES.HOME)
         }
-    }, [isLoading, isFetching, isSuccess, navigate])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isLoading, isFetching, isSuccess])
 
     useEffect(() => {
         if(!data || !list.length) return;
 
         dispatch(getRelatedProducts(data.category.id));
-
-    }, [data, list.length, dispatch])
+    }, [data, dispatch, list.length]);
 
     return !data ? (
             <Spinner animation="border" role="status">
