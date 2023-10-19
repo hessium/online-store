@@ -10,6 +10,17 @@
   gap: 0 20px;
 }
 
+.list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.wrapper {
+  width: 100%;
+}
+
 .title {
   font-size: 20px;
 }

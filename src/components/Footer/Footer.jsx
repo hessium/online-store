@@ -14,7 +14,7 @@ const Footer = () => {
                       <img src={LOGO} alt="stuff" />
                   </Link>
               </div>
-              <div >Developed by <span >Davedov</span></div>
+              <div className={cl.author}>Developed by <span >Davedov</span></div>
               <ul className={cl.list}>
                   <li >
                       <a href="https://www.youtube.com" rel="noreferrer" target='_blank'>

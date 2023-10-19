@@ -8,6 +8,7 @@ import Product from "./Product";
 import Products from "./Products";
 import {getRelatedProducts} from "../../features/products/productsSlice";
 
+import Spinner from 'react-bootstrap/Spinner';
 
 const SingleProduct = () => {
     const {id} = useParams();
@@ -32,11 +33,14 @@ const SingleProduct = () => {
     }, [data, list.length, dispatch])
 
     return !data ? (
-            <section className="preloaded">Loading</section>) 
+            <Spinner animation="border" role="status">
+                <span className="visually-hidden">Loading...</span>
+            </Spinner>
+        )
         : (
             < >
-                <Product  {...data} key={data.id}/>
-                <Products products={ related} amount={4} title="Related products" />
+                <Product  {...data} />
+                <Products products={ related} amount={10} title="Related products" />
             </>
 
         )

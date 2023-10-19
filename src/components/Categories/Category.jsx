@@ -134,7 +134,7 @@ const Category = () => {
                         <button onClick={handleReset}>Reset</button>
                     </div>
                 ) : (
-                    <Products title='' products={items} style={{padding: 0}} amount={items.length}/>
+                    <Products title='' products={items}  amount={items.length}/>
                 )
             }
 

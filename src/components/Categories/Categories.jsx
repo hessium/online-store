@@ -3,15 +3,16 @@ import {Link} from "react-router-dom";
 
 import PRODUCT from "../../styles/img/product.png";
 
+import cl from "../../styles/Category.module.scss";
 
-const Categories = ({ title, style = {}, products = [], amount }) => {
+const Categories = ({ title,  products = [], amount }) => {
 
     const list = products;
 
     return (
-        <section style={style}>
+        <section className={cl.wrapper}>
             {title && (<h2>{title}</h2>)}
-          <div >
+          <div className={cl.list}>
               {list.map(({id,  name,}) =>(
                   <Link to={`/categories/${id}`} key={id} >
                       <div style={{backgroundImage:`url(${PRODUCT})`}} />
