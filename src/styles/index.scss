@@ -16,6 +16,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     min-height: 100vh;
     display: flex;
+    overflow-x: hidden;
 }
 #root {
     flex-grow: 1;
@@ -57,7 +58,7 @@ aside {
     height: auto;
     display: flex;
     flex-direction: column;
-    width: 23%;
+    width:324px;
     flex-shrink: 1;
 }
 
@@ -68,7 +69,12 @@ button {
 }
 
 .wrapper {
-    width: calc(100% - 324px);
+    width: calc(100% - 344px);
+
+    & form {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 button:disabled {
@@ -123,7 +129,9 @@ ul,li {
     margin: 0;
     padding: 0;
 }
+.profile {
 
+}
 .card-body {
     display: flex;
     flex-direction: column;
@@ -137,13 +145,11 @@ ul,li {
     overflow: hidden;
 }
 
-@media (max-width: 1200px) {
-    aside {
-        width: 35%;
+@media (max-width: 1060px) {
+    .wrapper {
+        width: 100%;
     }
-}
 
-@media (max-width: 980px) {
     aside {
         width: 100%;
     }

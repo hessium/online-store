@@ -12,7 +12,7 @@
 
 .detail {
   display: flex;
-  width: calc((100% - 23%) - 20px);
+  width: calc((100% - 324px) - 20px);
 }
 
 .name {
@@ -163,7 +163,7 @@ button {
   }
 }
 
-@media (max-width: 980px) {
+@media (max-width: 1060px) {
   .detail {
     width: 100%;
   }

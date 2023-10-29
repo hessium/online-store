@@ -51,8 +51,9 @@
   }
 }
 
-@media (max-width: 980px) {
+@media (max-width: 1060px) {
   .poster {
     width: 100%;
+    order: -1;
   }
 }

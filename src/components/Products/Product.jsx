@@ -74,14 +74,14 @@ const Product = (item) => {
                     )}
                 </div>
                 <p className={cl.description}>{description}</p>
-
+                {!currentSize ? <div>
+                    Select size</div> : <></>}
                 <div className={cl.actions}>
-                    <button
-                        className={cl.add}
-                        onClick={addToCart}
-                        disabled={!currentSize}>
-                        Add to cart
-                    </button>
+                        <button
+                            onClick={addToCart}
+                            disabled={!currentSize}>
+                            Add to cart
+                        </button>
                     <button className={cl.favourite}>
                         Add to favorite
                     </button>
