@@ -1,0 +1,39 @@
+.cart {
+  display: flex;
+  align-items: stretch;
+}
+
+.img {
+  width: 60px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  margin-right: 30px;
+}
+
+.body {
+  margin-right: 30px;
+}
+
+.name {
+  margin-bottom: 40px;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+}
+
+.delete {
+  padding: 4px;
+  background-color: transparent;
+  border: 1px solid ;
+  max-height: 40px;
+}
